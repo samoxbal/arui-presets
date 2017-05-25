@@ -5,7 +5,16 @@ module.exports = {
         require('babel-preset-stage-0')
     ],
     plugins: [
-        require('babel-plugin-transform-decorators-legacy').default
+        require('babel-plugin-transform-decorators-legacy').default,
+        [
+            require('babel-plugin-transform-runtime'),
+            {
+                "helpers": false,
+                "polyfill": false,
+                "regenerator": true,
+                "moduleName": "babel-runtime"
+            }
+        ]
     ],
     env: {
         production: {
